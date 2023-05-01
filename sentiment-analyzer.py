@@ -26,7 +26,7 @@ count_neutral = 0
 if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
-        url = 'https://coolsentimentsanalyzer.herokuapp.com/classify/?text='+str(input_df.iloc[i])
+        url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
         result = r.json()["text_sentiment"]
         if result=='positive':
@@ -56,7 +56,7 @@ if uploaded_file is not None:
     st.plotly_chart(fig, use_container_width=True)
 
 elif single_review:
-    url = 'https://coolsentimentsanalyzer.herokuapp.com/classify/?text='+single_review
+    url = 'https://sranalyser.herokuapp.com/classify/?text='+single_review
     r = requests.get(url)
     result = r.json()["text_sentiment"]
     if result=='positive':
@@ -69,5 +69,5 @@ elif single_review:
 else:
     st.write("# ⬅ Enter user input from the sidebar to see the nature of the review.")
 
-st.sidebar.subheader("""Created with 💖""")
+st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
