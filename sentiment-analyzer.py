@@ -22,7 +22,7 @@ with row0_2:
     
 row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 with row1_1:
-    st.markdown("Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.")
+    st.markdown('<div style="text-align: justify;">Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.</div>')
     st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser).")
     
 ####################
@@ -45,16 +45,26 @@ st.sidebar.text('')
 st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
 ### SEE DATA ###
-row2_spacer1, row2_1, row2_spacer2 = st.columns((.2, 7.1, .2))
+row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4= st.columns((.2, 2.2, .2, 2.5, .2, 2.2, .2))
 with row2_1:
    st.header('')
-   st.header('Dashboard')  
-        
+   st.header('')
+with row2_1:
+   st.header('')
+   st.header('DASHBOARD') 
+with row2_1:
+   st.header('')
+   st.header('') 
+    
 count_positive = 0
 count_negative = 0
 count_neutral  = 0
 
 if uploaded_file is not None:
+    row7_spacer1, row7_1, row7_spacer2 = st.columns((.2, 7.1, .2))
+    with row7_1:
+        st.subheader('Multiple Review Analysis')
+        
     input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
@@ -69,13 +79,16 @@ if uploaded_file is not None:
 
     x = ["Positive", "Negative", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
-
+    
+    row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
+    with row8_1:
+        st.subheader('Multiple Review Analysis')    
     if count_positive>count_negative:
-        st.write("""# Great Work there! Majority of people recommended the games 😃""")
+        st.write("Great Work there! Majority of people recommended the games. 😃")
     elif count_negative>count_positive:
-        st.write("""# Try improving your product! Majority of people didn't recommended your games upto the mark 😔""")
+        st.write("Try improving your games! Majority of people didn't recommended your games upto the mark... 😔")
     else:
-        st.write("""# Good Work there, but there's room for improvement! Majority of people have neutral reactions to listed games 😶""")
+        st.write("Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶")
         
     layout = go.Layout(
         title = 'Multiple Reviews Analysis',
@@ -107,12 +120,12 @@ elif single_review:
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
         if result=='positive':
-            st.markdown(" Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃 ")
+            st.markdown('<div style="text-align: justify;"> Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</div>')
         elif result=='negative':
-            st.markdown(" Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔 ")
+            st.markdown('<div style="text-align: justify;"> Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</div>')
         else:
-            st.markdown(" Good Work there, but there's room for improvement! You got a Neutral Review. 😶 ")
-        
+            st.markdown('<div style="text-align: justify;"> Good Work there, but there is room for improvement! You got a Neutral Review. 😶</div>')
+       
 else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
     with row6_1:
