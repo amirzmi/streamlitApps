@@ -15,7 +15,7 @@ st. set_page_config(layout="wide")
 #row0_spacer1, row0_1, row0_spacer2 = st.columns((.1, 3.2, .1))
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('SRANALYSER: STEAM REVIEWS ANALYSER')
+    st.title('SRanalyser: STEAM REVIEWS ANALYSER')
 with row0_2:
     st.text("")
     st.text("")
@@ -113,7 +113,7 @@ elif single_review:
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
         st.text('')
-        st.markdown('<div style="text-align: center;"><h5> 👇 INTERPRETATION 👇 </h5></div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: justify;"><h5> 👇 INTERPRETATION 👇 </h5></div>', unsafe_allow_html=True)
         if result=='positive':
             st.markdown('<div style="text-align: justify;"><h5>✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h5></div>', unsafe_allow_html=True)
         elif result=='negative':
