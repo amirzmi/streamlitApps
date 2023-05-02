@@ -107,7 +107,7 @@ elif single_review:
         st.text(+result)
         st.text('')
         
-    row4_spacer1, row4_1, row3_spacer2, = st.columns((.2, 7.1, .2))
+    row4_spacer1, row4_1, row3_spacer2 = st.columns((.2, 7.1, .2))
     with row4_1:
         if result=='positive':
             st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
