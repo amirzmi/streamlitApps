@@ -125,7 +125,7 @@ else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
     with row6_1:
         st.markdown('')
-        st.markdown('⬅ Enter user input from the sidebar to analyse sentiment of the review.')
+        st.markdown('<div style="text-align: justify;"><h5>⬅ Enter user input from the sidebar to analyse sentiment of the review.</h5></div>', unsafe_allow_html=True)
 
 
 
