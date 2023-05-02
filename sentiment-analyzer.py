@@ -98,11 +98,14 @@ elif single_review:
     row3_spacer1, row3_1, row3_spacer2, row3_spacer3, row3_2, row3_spacer4= st.columns((.2, 7.1, .2, .2, 3.1, .2))
     with row3_1:
         st.markdown("")
+        st.text('')
         st.text(+single_review)
         st.text('')
     with row3_2:
-        st.text('Accuracy')
-        st.text('98.01 percent')
+        st.markdown("")
+        st.text('result')
+        st.text(+result)
+        st.text('')
         
     row4_spacer1, row4_1, row3_spacer2, = st.columns((.2, 7.1, .2))
     with row4_1:
