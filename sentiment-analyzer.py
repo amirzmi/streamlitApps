@@ -112,10 +112,10 @@ elif single_review:
     row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row4_1:
         st.markdown('**Entered Input**') 
-        st.markdown(' => 'single_review) 
+        st.markdown(' => ', single_review) 
     with row4_2:
         st.markdown('**Result**') 
-        st.markdown(' => 'result)
+        st.markdown(' => ', result)
         
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
