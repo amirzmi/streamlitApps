@@ -68,7 +68,7 @@ elif single_review:
         st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
 
 else:
-    st.write(""""# ⬅ Enter user input from the sidebar to see the sentiment of the review."""")
+    st.write("""# ⬅ Enter user input from the sidebar to see the sentiment of the review.""")
 
 st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
