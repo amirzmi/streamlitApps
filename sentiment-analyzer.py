@@ -9,9 +9,9 @@ from pandas.io.json import json_normalize
 import pickle
 
 fig = go.Figure()
-st.write("""# Sentiments Analysis App ✌ """)
-
-st.write('Sentiment analysis is the interpretation and classification of emotions (positive, negative and neutral) within text data using text analysis techniques. Sentiment analysis tools allow businesses to identify customer sentiment toward products, brands or services in online feedback.')
+st.write("""# Game Reviews Sentiment Analyser✌ """)
+st.write("""# for games on STEAM Platform """)
+st.write('')
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.sidebar.header('User Input(s)')
 st.sidebar.subheader('Single Review Analysis')
@@ -40,11 +40,11 @@ if uploaded_file is not None:
     y = [count_positive, count_negative, count_neutral]
 
     if count_positive>count_negative:
-        st.write("""# Great Work there! Majority of people liked your product 😃""")
+        st.write("""# Great Work there! Majority of people recommended the games 😃""")
     elif count_negative>count_positive:
-        st.write("""# Try improving your product! Majority of people didn't find your product upto the mark 😔""")
+        st.write("""# Try improving your product! Majority of people didn't recommended your games upto the mark 😔""")
     else:
-        st.write("""# Good Work there, but there's room for improvement! Majority of people have neutral reactions to your product 😶""")
+        st.write("""# Good Work there, but there's room for improvement! Majority of people have neutral reactions to listed games 😶""")
         
     layout = go.Layout(
         title = 'Multiple Reviews Analysis',
@@ -60,14 +60,14 @@ elif single_review:
     r = requests.get(url)
     result = r.json()["text_sentiment"]
     if result=='positive':
-        st.write("""# Great Work there! You got a Positive Review 😃""")
+        st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
     elif result=='negative':
-        st.write("""# Try improving your product! You got a Negative Review 😔""")
+        st.write("""# Try improving your product! You got a Negative Review 😔. The user not recommend your games"""")
     else:
-        st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶""")
+        st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
 
 else:
-    st.write("# ⬅ Enter user input from the sidebar to see the nature of the review.")
+    st.write("# ⬅ Enter user input from the sidebar to see the sentiment of the review.")
 
 st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
