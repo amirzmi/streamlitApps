@@ -10,6 +10,10 @@ import pickle
 
 fig = go.Figure()
 
+####################
+### INTRODUCTION ###
+####################
+
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
     st.title('StR - STEAM Reviews Analyser')
@@ -20,16 +24,30 @@ row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
 with row3_1:
     st.markdown("Hello there! This is my Final Year Project as title: Web-based Sentiment analyser for reviews on STEAM Platform")
     st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser)")
+    
+####################
+### SELECTION    ###
+####################
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-st.sidebar.header("""#ANALYSE SENTIMENT""")
+st.sidebar.text('')
+st.sidebar.text('')
+st.sidebar.text('')
 
+st.sidebar.header("""ANALYSE SENTIMENT""")
+st.sidebar.text('')
+st.sidebar.text('')
 st.sidebar.subheader('Single Review Analysis')
-single_review = st.sidebar.text_input('Enter your single review below:')
+single_review = st.sidebar.text_input('Enter your single review 👇')
 
 st.sidebar.subheader('Mutiple Reviews Analysis')
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("Upload your input CSV file, Please limit yor input by at maximum of 100 rows of reviews", type=["csv"])
+
+st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
+
+### SEE DATA ###
+row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
 
 count_positive = 0
 count_negative = 0
@@ -70,15 +88,36 @@ elif single_review:
     url = 'https://sranalyser.herokuapp.com/classify/?text='+single_review
     r = requests.get(url)
     result = r.json()["text_sentiment"]
-    if result=='positive':
-        st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
-    elif result=='negative':
-        st.write("""# Try improving your product! You got a Negative Review 😔. Look like the user do not recommend your games... 😔 """)
-    else:
-        st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
+    
+    
+    with row6_1:
+        st.header("Dashboard")  
+        st.header("")  
+        st.subheader("Currently entered review:")
 
+    row3_spacer1, row3_1, row3_spacer2, row3_spacer3, row3_2, row3_spacer4= st.columns((.2, 7.1, .2, .2, 3.1, .2))
+    with row3_1:
+        st.markdown("")
+        st.text(+single_review)
+        st.text('')
+    with row3_2:
+        st.text('Accuracy')
+        st.text('98.01 percent')
+        
+    row4_spacer1, row4_1, row3_spacer2, = st.columns((.2, 7.1, .2))
+    with row4_1:
+        if result=='positive':
+            st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
+        elif result=='negative':
+            st.write("""# Hmmm.... You got a Negative Review 😔. Look like the gamer do not satisfy with your game... 😔 """)
+        else:
+            st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
+        
 else:
-    st.write("""# ⬅ Enter user input from the sidebar to see the sentiment of the review.""")
+    with row4_1:
+        st.write('')
+        st.write('')
+        st.write('⬅ Enter user input from the sidebar to see the sentiment of the review.')
 
-st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
+
 
