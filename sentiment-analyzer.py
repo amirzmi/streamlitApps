@@ -62,7 +62,7 @@ elif single_review:
     if result=='positive':
         st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
     elif result=='negative':
-        st.write("""# Try improving your product! You got a Negative Review 😔. The user not recommend your games"""")
+        st.write("""# Try improving your product! You got a Negative Review 😔. Look like the user do not recommend your games... 😔 """)
     else:
         st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
 
