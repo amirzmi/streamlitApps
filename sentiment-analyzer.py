@@ -9,8 +9,9 @@ from pandas.io.json import json_normalize
 import pickle
 
 fig = go.Figure()
-st.write("""# Game Reviews Sentiment Analyser✌ """)
-st.write("""# for games on STEAM Platform """)
+st.write("""# ✌Game Reviews """)
+st.write("""#  Sentiment Analyser✌ """)
+st.write("""#  for games on STEAM Platform """)
 st.write('')
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.sidebar.header('User Input(s)')
@@ -67,7 +68,7 @@ elif single_review:
         st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
 
 else:
-    st.write("# ⬅ Enter user input from the sidebar to see the sentiment of the review.")
+    st.write(""""# ⬅ Enter user input from the sidebar to see the sentiment of the review."""")
 
 st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
