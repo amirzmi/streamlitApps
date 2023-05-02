@@ -99,12 +99,12 @@ elif single_review:
     with row3_1:
         st.markdown("")
         st.text('')
-        st.text(+single_review)
+        st.text(single_review)
         st.text('')
     with row3_2:
         st.markdown("")
         st.text('result')
-        st.text(+result)
+        st.text(result)
         st.text('')
         
     row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
