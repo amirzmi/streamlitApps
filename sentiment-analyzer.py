@@ -16,7 +16,7 @@ fig = go.Figure()
 
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('StR - STEAM Reviews Analyser')
+    st.title('SRAnalyser - STEAM Reviews Analyser')
 with row0_2:
     st.text("")
     st.subheader('Created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
@@ -51,7 +51,8 @@ row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
 
 count_positive = 0
 count_negative = 0
-count_neutral = 0
+count_neutral  = 0
+
 if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
@@ -89,7 +90,6 @@ elif single_review:
     r = requests.get(url)
     result = r.json()["text_sentiment"]
     
-    
     with row6_1:
         st.header("Dashboard")  
         st.header("")  
@@ -107,7 +107,7 @@ elif single_review:
         st.text(+result)
         st.text('')
         
-    row4_spacer1, row4_1, row3_spacer2 = st.columns((.2, 7.1, .2))
+    row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
     with row4_1:
         if result=='positive':
             st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
