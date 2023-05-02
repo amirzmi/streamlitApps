@@ -49,9 +49,9 @@ st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
 ### SEE DATA ###
 row2_spacer1, row2_1, row2_spacer2 = st.columns((.2, 7.1, .2))
-    with row2_1:
-        st.header("")
-        st.header("             Dashboard               ")  
+with row2_1:
+   st.header('')
+   st.header('Dashboard')  
         
 count_positive = 0
 count_negative = 0
