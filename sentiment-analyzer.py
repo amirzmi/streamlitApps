@@ -13,16 +13,15 @@ import pickle
 ####################
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('SRAnalyser - ')
-    st.title('Steam Reviews Analyser')
+    st.title('SRAnalyser - Steam Reviews Analyser')
 with row0_2:
     st.text("")
     st.text("")
-    st.subheader('Streamlit App by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
+    st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
     
 row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 with row1_1:
-    st.markdown('<div style="text-align: justify;">Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.</div>')
+    st.markdown('<div style="text-align: justify;">Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.</div>', unsafe_allow_html=True)
     st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser).")
     
 ####################
@@ -35,12 +34,9 @@ st.sidebar.text('')
 st.sidebar.text('')
 st.sidebar.markdown('**Single Review Analysis**')
 single_review = st.sidebar.text_input(' Enter your single review 👇')
-
-st.sidebar.text('')
 st.sidebar.text('')
 st.sidebar.markdown('**Multiple Review Analysis**')
 uploaded_file = st.sidebar.file_uploader(" Upload your input CSV file 👇", type=["csv"])
-st.sidebar.text('')
 st.sidebar.text('')
 st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
@@ -48,13 +44,10 @@ st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4= st.columns((.2, 2.2, .2, 2.5, .2, 2.2, .2))
 with row2_1:
    st.header('')
-   st.header('')
-with row2_1:
-   st.header('')
+with row2_2:
    st.header('DASHBOARD') 
-with row2_1:
+with row2_3:
    st.header('')
-   st.header('') 
     
 count_positive = 0
 count_negative = 0
@@ -112,17 +105,17 @@ elif single_review:
     row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row4_1:
         st.markdown('**Entered Input**') 
-        st.markdown(' => ', single_review) 
+        st.markdown(' = '+single_review) 
     with row4_2:
         st.markdown('**Result**') 
-        st.markdown(' => ', result)
+        st.markdown(' = '+result)
         
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
         if result=='positive':
-            st.markdown('<div style="text-align: justify;"> Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</div>')
+            st.markdown('<div style="text-align: justify;"> Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</div>', unsafe_allow_html=True)
         elif result=='negative':
-            st.markdown('<div style="text-align: justify;"> Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</div>')
+            st.markdown('<div style="text-align: justify;"> Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</div>', unsafe_allow_html=True)
         else:
             st.markdown('<div style="text-align: justify;"> Good Work there, but there is room for improvement! You got a Neutral Review. 😶</div>')
        
