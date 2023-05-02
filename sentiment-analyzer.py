@@ -8,29 +8,26 @@ import plotly.express as px
 from pandas.io.json import json_normalize
 import pickle
 
-fig = go.Figure()
-
 ####################
 ### INTRODUCTION ###
 ####################
-
-row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 3, .1, 1.3, .1))
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('SRAnalyser - STEAM Reviews Analyser')
+    st.title('SRAnalyser - ')
+    st.title('Steam Reviews Analyser')
 with row0_2:
     st.text("")
-    st.subheader('Created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
+    st.text("")
+    st.subheader('Streamlit App by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
     
 row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 with row1_1:
-    st.text("")
-    st.markdown("Hello there! This is my Final Year Project as title: Web-based Sentiment analyser for reviews on STEAM Platform.")
+    st.markdown("Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.")
     st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser).")
     
 ####################
 ### SELECTION    ###
 ####################
-
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 st.sidebar.header("""ANALYSE SENTIMENT""")
@@ -102,19 +99,19 @@ elif single_review:
     row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row4_1:
         st.markdown('**Entered Input**') 
-        st.markdown(single_review) 
+        st.markdown(' => 'single_review) 
     with row4_2:
         st.markdown('**Result**') 
-        st.markdown(result)
+        st.markdown(' => 'result)
         
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
         if result=='positive':
-            st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
+            st.markdown(" Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃 ")
         elif result=='negative':
-            st.write("""# Hmmm.... You got a Negative Review 😔. Look like the gamer do not satisfy with your game... 😔 """)
+            st.markdown(" Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔 ")
         else:
-            st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
+            st.markdown(" Good Work there, but there's room for improvement! You got a Neutral Review. 😶 ")
         
 else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
