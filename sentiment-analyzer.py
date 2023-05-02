@@ -75,15 +75,15 @@ if uploaded_file is not None:
     x = ["Positive", "Negative", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
     
-    row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
-    with row8_1:
+    #row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
+    #with row8_1:
         #st.subheader('Multiple Review Analysis')    
-        if count_positive>count_negative:
-            st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
-        elif count_negative>count_positive:
-            st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
-        else:
-            st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
+    if count_positive>count_negative:
+        st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
+    elif count_negative>count_positive:
+        st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
+    else:
+        st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
         
     layout = go.Layout(
         title = 'Multiple Reviews Analysis',
@@ -100,8 +100,8 @@ elif single_review:
     result = r.json()["text_sentiment"]
     
     ### BELOW DASHBOARD ###
-    row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
-    with row3_1:
+    #row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
+    #with row3_1:
         #st.subheader('Single Review Analysis')
 
     row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
