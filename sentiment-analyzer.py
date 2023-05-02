@@ -9,18 +9,28 @@ from pandas.io.json import json_normalize
 import pickle
 
 fig = go.Figure()
-st.write("""# ✌Game Reviews """)
-st.write("""#  Sentiment Analyser✌ """)
-st.write("""#  for games on STEAM Platform """)
-st.write('')
+
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
+with row0_1:
+    st.title('StR - STEAM Reviews Analyser')
+with row0_2:
+    st.text("")
+    st.subheader('Created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
+row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
+with row3_1:
+    st.markdown("Hello there! This is my Final Year Project as title: Web-based Sentiment analyser for reviews on STEAM Platform")
+    st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser)")
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
-st.sidebar.header('User Input(s)')
+
+st.sidebar.header("""#ANALYSE SENTIMENT""")
+
 st.sidebar.subheader('Single Review Analysis')
-single_review = st.sidebar.text_input('Enter single review below:')
+single_review = st.sidebar.text_input('Enter your single review below:')
+
 st.sidebar.subheader('Mutiple Reviews Analysis')
-
-
 uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+
 count_positive = 0
 count_negative = 0
 count_neutral = 0
