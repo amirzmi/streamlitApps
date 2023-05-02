@@ -117,7 +117,8 @@ elif single_review:
             st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
         
 else:
-    with row4_1:
+    row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
+    with row5_1:
         st.write('')
         st.write('')
         st.write('⬅ Enter user input from the sidebar to see the sentiment of the review.')
