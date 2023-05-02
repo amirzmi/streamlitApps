@@ -15,8 +15,9 @@ st. set_page_config(layout="wide")
 #row0_spacer1, row0_1, row0_spacer2 = st.columns((.1, 3.2, .1))
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
-    st.title('SRAnalyser - Steam Reviews Analyser')
+    st.title('SRANALYSER: STEAM REVIEWS ANALYSER')
 with row0_2:
+    st.text("")
     st.text("")
     st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
 #row00_spacer1, row00_1, row00_spacer2 = st.columns((.1, 3.2, .1))
@@ -52,16 +53,14 @@ with row2_2:
    st.header('DASHBOARD') 
 with row2_3:
    st.header('')
-    
+
+st.header('')
 count_positive = 0
 count_negative = 0
 count_neutral  = 0
 
 if uploaded_file is not None:
-    row7_spacer1, row7_1, row7_spacer2 = st.columns((.2, 7.1, .2))
-    with row7_1:
-        st.subheader('Multiple Review Analysis')
-        
+    
     input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
@@ -76,10 +75,7 @@ if uploaded_file is not None:
 
     x = ["Positive", "Negative", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
-    
-    #row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
-    #with row8_1:
-        #st.subheader('Multiple Review Analysis')    
+        
     if count_positive>count_negative:
         st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
     elif count_negative>count_positive:
@@ -109,19 +105,21 @@ elif single_review:
     row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row4_1:
         st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
-        st.markdown(' = '+single_review) 
+        st.markdown(single_review) 
     with row4_2:
         st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
-        st.markdown(' = '+result)
+        st.markdown(result)
         
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
+        st.text('')
+        st.markdown('<div style="text-align: center;"><h5> 👇 INTERPRETATION 👇 </h5></div>', unsafe_allow_html=True)
         if result=='positive':
-            st.markdown('<div style="text-align: center;"><h4>Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h4></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h5>✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h5></div>', unsafe_allow_html=True)
         elif result=='negative':
-            st.markdown('<div style="text-align: center;"><h4>Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</h4></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h5>❌ Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</h5></div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div style="text-align: center;"><h4>Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h4></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h5>🆗 Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h5></div>', unsafe_allow_html=True)
        
 else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
