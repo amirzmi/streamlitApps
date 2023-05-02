@@ -14,16 +14,18 @@ fig = go.Figure()
 ### INTRODUCTION ###
 ####################
 
-row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 3, .1, 1.3, .1))
 with row0_1:
     st.title('SRAnalyser - STEAM Reviews Analyser')
 with row0_2:
     st.text("")
     st.subheader('Created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
-row3_spacer1, row3_1, row3_spacer2 = st.columns((.1, 3.2, .1))
-with row3_1:
-    st.markdown("Hello there! This is my Final Year Project as title: Web-based Sentiment analyser for reviews on STEAM Platform")
-    st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser)")
+    
+row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
+with row1_1:
+    st.text("")
+    st.markdown("Hello there! This is my Final Year Project as title: Web-based Sentiment analyser for reviews on STEAM Platform.")
+    st.markdown("You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser).")
     
 ####################
 ### SELECTION    ###
@@ -31,24 +33,26 @@ with row3_1:
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-st.sidebar.text('')
-st.sidebar.text('')
-st.sidebar.text('')
-
 st.sidebar.header("""ANALYSE SENTIMENT""")
 st.sidebar.text('')
 st.sidebar.text('')
-st.sidebar.subheader('Single Review Analysis')
-single_review = st.sidebar.text_input('Enter your single review 👇')
+st.sidebar.markdown('**Single Review Analysis**')
+single_review = st.sidebar.text_input(' Enter your single review 👇')
 
-st.sidebar.subheader('Mutiple Reviews Analysis')
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file, Please limit yor input by at maximum of 100 rows of reviews", type=["csv"])
-
+st.sidebar.text('')
+st.sidebar.text('')
+st.sidebar.markdown('**Multiple Review Analysis**')
+uploaded_file = st.sidebar.file_uploader(" Upload your input CSV file 👇", type=["csv"])
+st.sidebar.text('')
+st.sidebar.text('')
 st.sidebar.subheader("""Created with 💖 by Amir Azmi""")
 
 ### SEE DATA ###
-row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
-
+row2_spacer1, row2_1, row2_spacer2 = st.columns((.2, 7.1, .2))
+    with row2_1:
+        st.header("")
+        st.header("             Dashboard               ")  
+        
 count_positive = 0
 count_negative = 0
 count_neutral  = 0
@@ -90,25 +94,21 @@ elif single_review:
     r = requests.get(url)
     result = r.json()["text_sentiment"]
     
-    with row6_1:
-        st.header("Dashboard")  
-        st.header("")  
-        st.subheader("Currently entered review:")
-
-    row3_spacer1, row3_1, row3_spacer2, row3_spacer3, row3_2, row3_spacer4= st.columns((.2, 7.1, .2, .2, 3.1, .2))
+    ### BELOW DASHBOARD ###
+    row3_spacer1, row3_1, row3_spacer2 = st.columns((.2, 7.1, .2))
     with row3_1:
-        st.markdown("")
-        st.text('')
-        st.text(single_review)
-        st.text('')
-    with row3_2:
-        st.markdown("")
-        st.text('result')
-        st.text(result)
-        st.text('')
-        
-    row4_spacer1, row4_1, row4_spacer2 = st.columns((.2, 7.1, .2))
+        st.subheader('Single Review Analysis')
+
+    row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row4_1:
+        st.markdown('**Entered Input**') 
+        st.markdown(single_review) 
+    with row4_2:
+        st.markdown('**Result**') 
+        st.markdown(result)
+        
+    row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
+    with row5_1:
         if result=='positive':
             st.write("""# Great Work there! You got a Positive Review 😃. The user recommended your games""")
         elif result=='negative':
@@ -117,8 +117,8 @@ elif single_review:
             st.write("""# Good Work there, but there's room for improvement! You got a Neutral Review 😶 """)
         
 else:
-    row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
-    with row5_1:
+    row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
+    with row6_1:
         st.write('')
         st.write('')
         st.write('⬅ Enter user input from the sidebar to see the sentiment of the review.')
