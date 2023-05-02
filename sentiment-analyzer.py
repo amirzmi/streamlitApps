@@ -17,7 +17,7 @@ row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, 
 with row0_1:
     st.title('SRAnalyser - Steam Reviews Analyser')
 with row0_2:
-    t.text("")
+    st.text("")
     st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
 #row00_spacer1, row00_1, row00_spacer2 = st.columns((.1, 3.2, .1))
 #with row00_1:
