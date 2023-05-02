@@ -8,17 +8,20 @@ import plotly.express as px
 from pandas.io.json import json_normalize
 import pickle
 
+st. set_page_config(layout="wide") 
 ####################
 ### INTRODUCTION ###
 ####################
-row0_spacer1, row0_1, row0_spacer2 = st.columns((.1, 3.2, .1))
+#row0_spacer1, row0_1, row0_spacer2 = st.columns((.1, 3.2, .1))
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
     st.title('SRAnalyser - Steam Reviews Analyser')
-    
-row00_spacer1, row00_1, row00_spacer2 = st.columns((.1, 3.2, .1))
-with row00_1:
+with row0_2:
+    t.text("")
     st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
-    
+#row00_spacer1, row00_1, row00_spacer2 = st.columns((.1, 3.2, .1))
+#with row00_1:
+
 row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 with row1_1:
     st.markdown('Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.')
@@ -29,9 +32,9 @@ with row1_1:
 ####################
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-st.sidebar.header("        ANALYSE SENTIMENT        ")
+st.sidebar.header("ANALYSE SENTIMENT")
 st.sidebar.text('')
-st.sidebar.text('')
+
 #st.sidebar.markdown('**Single Review Analysis**')
 single_review = st.sidebar.text_input(' Enter your single review 👇')
 st.sidebar.text('')
@@ -42,7 +45,6 @@ st.sidebar.text('')
 
 ### SEE DATA ###
 st.header('')
-st.header('________________________________________________________________________________________________________________')
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4= st.columns((.2, 2.2, .2, 2.5, .2, 2.2, .2))
 with row2_1:
    st.header('')
@@ -106,26 +108,26 @@ elif single_review:
 
     row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row4_1:
-        st.markdown('**Entered Input**') 
+        st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
         st.markdown(' = '+single_review) 
     with row4_2:
-        st.markdown('**Result**') 
+        st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
         st.markdown(' = '+result)
         
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
         if result=='positive':
-            st.markdown('<div style="text-align: justify;"><h3>Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h3></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: center;"><h4>Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h4></div>', unsafe_allow_html=True)
         elif result=='negative':
-            st.markdown('<div style="text-align: justify;"><h3>Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</h3></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: center;"><h4>Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</h4></div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div style="text-align: justify;"><h3>Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h3></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: center;"><h4>Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h4></div>', unsafe_allow_html=True)
        
 else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
     with row6_1:
         st.markdown('')
-        st.markdown("""# ⬅ Enter user input from the sidebar to analyse sentiment of the review.""")
+        st.markdown('⬅ Enter user input from the sidebar to analyse sentiment of the review.')
 
 
 
