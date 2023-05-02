@@ -78,12 +78,12 @@ if uploaded_file is not None:
     row8_spacer1, row8_1, row8_spacer2 = st.columns((.2, 7.1, .2))
     with row8_1:
         #st.subheader('Multiple Review Analysis')    
-    if count_positive>count_negative:
-        st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
-    elif count_negative>count_positive:
-        st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
-    else:
-        st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
+        if count_positive>count_negative:
+            st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
+        elif count_negative>count_positive:
+            st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
+        else:
+            st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
         
     layout = go.Layout(
         title = 'Multiple Reviews Analysis',
