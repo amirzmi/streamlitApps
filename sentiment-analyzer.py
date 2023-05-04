@@ -74,7 +74,7 @@ if uploaded_file is not None:
         else:
             count_neutral+=1 
 
-    x = ["Positive", "Negative", "Neutral"]
+    x = ["Recommendation", "Not Recommendation", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
         
     if count_positive>count_negative:
@@ -114,13 +114,13 @@ elif single_review:
     row5_spacer1, row5_1, row5_spacer2 = st.columns((.2, 7.1, .2))
     with row5_1:
         st.text('')
-        st.markdown('<div style="text-align: justify;"><h5> 👇 INTERPRETATION 👇 </h5></div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: justify;"><h5> Interpretation:  </h5></div>', unsafe_allow_html=True)
         if result=='recommend':
-            st.markdown('<div style="text-align: justify;"><h5>✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h5></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h6> = ✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h6></div>', unsafe_allow_html=True)
         elif result=='notrecommend':
-            st.markdown('<div style="text-align: justify;"><h5>❌ Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</h5></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h6> = ❌ Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your games... 😔</h6></div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div style="text-align: justify;"><h5>🆗 Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h5></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h6> = 🆗 Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h6></div>', unsafe_allow_html=True)
        
 else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
