@@ -67,9 +67,9 @@ if uploaded_file is not None:
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
         result = r.json()["text_sentiment"]
-        if result=='positive':
+        if result=='recommend':
             count_positive+=1
-        elif result=='negative':
+        elif result=='not recommend':
             count_negative+=1
         else:
             count_neutral+=1 
@@ -115,9 +115,9 @@ elif single_review:
     with row5_1:
         st.text('')
         st.markdown('<div style="text-align: justify;"><h5> 👇 INTERPRETATION 👇 </h5></div>', unsafe_allow_html=True)
-        if result=='positive':
+        if result=='recommend':
             st.markdown('<div style="text-align: justify;"><h5>✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h5></div>', unsafe_allow_html=True)
-        elif result=='negative':
+        elif result=='notrecommend':
             st.markdown('<div style="text-align: justify;"><h5>❌ Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your game... 😔</h5></div>', unsafe_allow_html=True)
         else:
             st.markdown('<div style="text-align: justify;"><h5>🆗 Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h5></div>', unsafe_allow_html=True)
