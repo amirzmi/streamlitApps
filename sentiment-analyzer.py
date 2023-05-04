@@ -69,8 +69,11 @@ if uploaded_file is not None:
         
     input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
+        
+        input = str(input_df.iloc[i])
+        
         with row44_1:
-            st.markdown(input_df.head())
+            st.markdown(input)
             
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
