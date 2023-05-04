@@ -117,7 +117,7 @@ elif single_review:
         st.markdown('<div style="text-align: justify;"><h5> Interpretation:  </h5></div>', unsafe_allow_html=True)
         if result=='recommend':
             st.markdown('<div style="text-align: justify;"><h6> = ✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h6></div>', unsafe_allow_html=True)
-        elif result=='notrecommend':
+        elif result=='not recommend':
             st.markdown('<div style="text-align: justify;"><h6> = ❌ Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your games... 😔</h6></div>', unsafe_allow_html=True)
         else:
             st.markdown('<div style="text-align: justify;"><h6> = 🆗 Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h6></div>', unsafe_allow_html=True)
