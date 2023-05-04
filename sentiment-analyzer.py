@@ -89,25 +89,29 @@ if uploaded_file is not None:
             count_negative+=1
         else:
             count_neutral+=1 
-               
+            
+            
     x = ["Recommendation", "Not Recommendation", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
-        
-    if count_positive>count_negative:
-        st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
-    elif count_negative>count_positive:
-        st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
-    else:
-        st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
-       
-    layout = go.Layout(
-        title = 'Multiple Reviews Analysis',
-        xaxis = dict(title = 'Category'),
-        yaxis = dict(title = 'Number of reviews'),)
-    
-    fig.update_layout(dict1 = layout, overwrite = True)
-    fig.add_trace(go.Bar(name = 'Multi Reviews', x = x, y = y))
-    st.plotly_chart(fig, use_container_width=True)
+    row55_spacer1, row55_1, row55_spacer2 = st.columns((.2, 7.1, .2))
+    with row55_1: 
+        st.markdown('') 
+        if count_positive>count_negative:
+            st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
+        elif count_negative>count_positive:
+            st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
+        else:
+            st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
+            
+        st.markdown('')
+        layout = go.Layout(
+            title = 'Multiple Reviews Analysis',
+            xaxis = dict(title = 'Category'),
+            yaxis = dict(title = 'Number of reviews'),)
+
+        fig.update_layout(dict1 = layout, overwrite = True)
+        fig.add_trace(go.Bar(name = 'Multi Reviews', x = x, y = y))
+        st.plotly_chart(fig, use_container_width=True)
 
 elif single_review:
     url = 'https://sranalyser.herokuapp.com/classify/?text='+single_review
