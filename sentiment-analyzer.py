@@ -73,7 +73,12 @@ if uploaded_file is not None:
             count_negative+=1
         else:
             count_neutral+=1 
-
+            
+    see_data = st.expander('You can click here to see the entered data 👉')
+    with see_data:
+        st.dataframe(data=df_data_filtered.reset_index(drop=True))   
+        st.markdown('')
+        
     x = ["Recommendation", "Not Recommendation", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
         
@@ -83,7 +88,7 @@ if uploaded_file is not None:
         st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
     else:
         st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
-        
+       
     layout = go.Layout(
         title = 'Multiple Reviews Analysis',
         xaxis = dict(title = 'Category'),
