@@ -76,7 +76,7 @@ if uploaded_file is not None:
             
     see_data = st.expander('You can click here to see the entered data 👉')
     with see_data:
-        st.dataframe(data=df_data_filtered.reset_index(drop=True))   
+        st.dataframe(data=uploaded_file.reset_index(drop=True))   
         st.markdown('')
         
     x = ["Recommendation", "Not Recommendation", "Neutral"]
