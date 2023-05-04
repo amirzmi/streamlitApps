@@ -61,24 +61,32 @@ count_negative = 0
 count_neutral  = 0
 
 if uploaded_file is not None:
-    
+    row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
+    with row44_1:
+        st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
+    with row44_2:
+        st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
+        
     input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
+        with row44_1:
+            st.markdown(input_df.illoc[i])
+            
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
+        
         result = r.json()["text_sentiment"]
+        
+        with row44_2:
+            st.markdown(result)
+            
         if result=='recommend':
             count_positive+=1
         elif result=='not recommend':
             count_negative+=1
         else:
             count_neutral+=1 
-            
-    see_data = st.expander('You can click here to see the entered data 👉')
-    with see_data:
-        st.dataframe(data=uploaded_file.reset_index(drop=True))   
-        st.markdown('')
-        
+               
     x = ["Recommendation", "Not Recommendation", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
         
