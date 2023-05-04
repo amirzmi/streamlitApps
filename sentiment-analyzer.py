@@ -8,6 +8,7 @@ import plotly.express as px
 from pandas.io.json import json_normalize
 import pickle
 
+fig = go.Figure()
 st. set_page_config(layout="wide") 
 ####################
 ### INTRODUCTION ###
