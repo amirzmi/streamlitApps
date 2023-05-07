@@ -65,6 +65,7 @@ if uploaded_file is not None:
     row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row44_1:
         st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
+        st.write(input_df)
     with row44_2:
         st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
         
@@ -73,8 +74,6 @@ if uploaded_file is not None:
         
         input = str(input_df.iloc[i])
         
-        with row44_1:
-           st.write(input_df)
             
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
