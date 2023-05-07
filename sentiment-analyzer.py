@@ -49,9 +49,9 @@ st.sidebar.text('')
 st.header('')
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3, row2_3, row2_spacer4= st.columns((.2, 2.2, .2, 2.5, .2, 2.2, .2))
 with row2_1:
-   st.header('')
+   st.header('Dashboard')
 with row2_2:
-   st.header('DASHBOARD') 
+   st.header('') 
 with row2_3:
    st.header('')
 
@@ -73,7 +73,7 @@ if uploaded_file is not None:
         input = str(input_df.iloc[i])
         
         with row44_1:
-            st.markdown(input)
+           st.write(input_df)
             
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
@@ -97,9 +97,9 @@ if uploaded_file is not None:
     with row55_1: 
         st.markdown('') 
         if count_positive>count_negative:
-            st.markdown("""#Great Work there! Majority of people recommended the games. 😃""")
+            st.markdown("""#Great work there! The majority of people recommended the games. 😃""")
         elif count_negative>count_positive:
-            st.markdown("""#Try improving your games! Majority of people didn't recommended your games upto the mark... 😔""")
+            st.markdown("""#Try improving your games! The majority of people didn't recommend your games up to the mark. 😶""")
         else:
             st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
             
@@ -136,11 +136,11 @@ elif single_review:
         st.text('')
         st.markdown('<div style="text-align: justify;"><h5> Interpretation:  </h5></div>', unsafe_allow_html=True)
         if result=='recommend':
-            st.markdown('<div style="text-align: justify;"><h6> = ✅ Great Work there! You got a Positive Review. That mean the gamer recommended your games. 😃</h6></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h6> = ✅ Great work there! You got a positive review. That means the gamer recommended your games. 😃</h6></div>', unsafe_allow_html=True)
         elif result=='not recommend':
-            st.markdown('<div style="text-align: justify;"><h6> = ❌ Hmmm... You got a Negative Review... Look like the gamer do not satisfy with your games... 😔</h6></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h6> = ❌ Hmmm... You got a negative review... Looks like the gamers are not satisfied with your games. 😔</h6></div>', unsafe_allow_html=True)
         else:
-            st.markdown('<div style="text-align: justify;"><h6> = 🆗 Good Work there, but there is room for improvement! You got a Neutral Review. 😶</h6></div>', unsafe_allow_html=True)
+            st.markdown('<div style="text-align: justify;"><h6> = 🆗 Good work there, but there is room for improvement! You got a neutral review. 😶</h6></div>', unsafe_allow_html=True)
        
 else:
     row6_spacer1, row6_1, row6_spacer2 = st.columns((.2, 7.1, .2))
