@@ -62,6 +62,10 @@ count_negative = 0
 count_neutral  = 0
 
 if uploaded_file is not None:
+
+        
+    input_df = pd.read_csv(uploaded_file)
+    
     row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
     with row44_1:
         st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
@@ -69,7 +73,6 @@ if uploaded_file is not None:
     with row44_2:
         st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
         
-    input_df = pd.read_csv(uploaded_file)
     for i in range(input_df.shape[0]):
         
         input = str(input_df.iloc[i])
