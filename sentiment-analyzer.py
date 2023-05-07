@@ -17,15 +17,16 @@ st. set_page_config(layout="wide")
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
 with row0_1:
     st.title('SRanalyser: STEAM REVIEWS ANALYSER')
-with row0_2:
-    st.text("")
-    st.text("")
-    st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
+#with row0_2:
+    #st.text("")
+    #st.text("")
+    #st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
 #row00_spacer1, row00_1, row00_spacer2 = st.columns((.1, 3.2, .1))
 #with row00_1:
 
 row1_spacer1, row1_1, row1_spacer2 = st.columns((.1, 3.2, .1))
 with row1_1:
+    st.subheader('App created by [Amir Azmi](https://www.linkedin.com/in/amir-azmi-064a62261/)')
     st.markdown('Hello there! This is my Final Year Project and the title for this project: Web-based Sentiment analyser for reviews on STEAM Platform.')
     st.markdown('You can find the source code for this project in the [SRAnalyser GitHub Repository](https://github.com/amirzmi/SRAnalyser).')
     
