@@ -99,12 +99,13 @@ if uploaded_file is not None:
     row55_spacer1, row55_1, row55_spacer2 = st.columns((.2, 7.1, .2))
     with row55_1: 
         st.markdown('') 
+        st.markdown('<div style="text-align: justify;"><h5> Interpretation:  </h5></div>', unsafe_allow_html=True)
         if count_positive>count_negative:
-            st.markdown("""#Great work there! The majority of people recommended the games. 😃""")
+            st.markdown("""= ✅ Great work there! The majority of people recommended the games. 😃""")
         elif count_negative>count_positive:
-            st.markdown("""#Try improving your games! The majority of people didn't recommend your games up to the mark. 😶""")
+            st.markdown("""= ❌ Try improving your games! The majority of people didn't recommend your games up to the mark. 😶""")
         else:
-            st.markdown("""#Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
+            st.markdown("""= 🆗 Good Work there, but there's room for improvement! Majority of people have neutral reactions. 😶""")
             
         st.markdown('')
         layout = go.Layout(
