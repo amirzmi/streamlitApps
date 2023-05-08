@@ -97,7 +97,7 @@ if uploaded_file is not None:
             
     x = ["Recommendation", "Not Recommendation", "Neutral"]
     y = [count_positive, count_negative, count_neutral]
-    row55_spacer1, row55_1, row55_spacer2 = st.columns((.2, 7.1, .2))
+    row55_spacer1, row55_1, row55_spacer2 = st.columns((.2, 10, .2))
     with row55_1: 
         st.markdown('')
         layout = go.Layout(
