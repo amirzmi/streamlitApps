@@ -14,7 +14,8 @@ st. set_page_config(layout="wide")
 ### INTRODUCTION ###
 ####################
 #row0_spacer1, row0_1, row0_spacer2 = st.columns((.1, 3.2, .1))
-row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
+#row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns((.1, 2.3, .1, 1.3, .1))
+row0_spacer1, row0_1, row0_spacer2 = st.columns((.1, 3.2, .1))
 with row0_1:
     st.title('SRanalyser: STEAM REVIEWS ANALYSER')
 #with row0_2:
@@ -66,7 +67,7 @@ if uploaded_file is not None:
         
     input_df = pd.read_csv(uploaded_file)
     
-    row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 4.4, .4, 2.3, .2))
+    row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 6, .2, 2.3, .2))
     with row44_1:
         st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
         st.write(input_df)
@@ -76,8 +77,7 @@ if uploaded_file is not None:
     for i in range(input_df.shape[0]):
         
         input = str(input_df.iloc[i])
-        
-            
+                    
         url = 'https://sranalyser.herokuapp.com/classify/?text='+str(input_df.iloc[i])
         r = requests.get(url)
         
