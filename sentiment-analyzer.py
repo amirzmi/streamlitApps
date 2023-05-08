@@ -84,7 +84,7 @@ if uploaded_file is not None:
         result = r.json()["text_sentiment"]
         
         with row44_2:
-            st.markdown(i ". " result)
+            st.markdown(result)
             
         if result=='recommend':
             count_positive+=1
