@@ -64,11 +64,10 @@ count_neutral  = 0
 
 if uploaded_file is not None:
 
-        
     input_df = pd.read_csv(uploaded_file)
     
     #row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 7.1, .2))
-    row44_spacer1, row44_1, row44_spacer2  = st.columns((.2, 7.1, .2))
+    row44_spacer1, row44_1, row44_spacer2  = st.columns((.1, 3.2, .1))
     with row44_1:
         st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
         st.write(input_df)
