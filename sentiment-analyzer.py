@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 import plotly.express as px
 from pandas.io.json import json_normalize
 import pickle
-st.beta_set_page_config(page_title='SRanalyser', page_icon = favicon, layout = 'wide', initial_sidebar_state = 'auto')
+
 fig = go.Figure()
 st. set_page_config(layout="wide") 
 ####################
