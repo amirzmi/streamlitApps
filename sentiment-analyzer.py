@@ -67,12 +67,12 @@ if uploaded_file is not None:
         
     input_df = pd.read_csv(uploaded_file)
     
-    row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 5, .2, 1.3, .2))
+    row44_spacer1, row44_1, row44_spacer2, row44_2, row44_spacer3  = st.columns((.2, 7.1, .2))
     with row44_1:
         st.markdown('<h5>ENTERED INPUT</h5>', unsafe_allow_html=True) 
         st.write(input_df)
-    with row44_2:
-        st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
+    #with row44_2:
+        #st.markdown('<h5>SENTIMENT RESULT</h5>', unsafe_allow_html=True) 
         
     for i in range(input_df.shape[0]):
         
@@ -83,8 +83,8 @@ if uploaded_file is not None:
         
         result = r.json()["text_sentiment"]
         
-        with row44_2:
-            st.markdown(result)
+        #with row44_2:
+            #st.markdown(result)
             
         if result=='recommend':
             count_positive+=1
@@ -102,7 +102,7 @@ if uploaded_file is not None:
         layout = go.Layout(
             title = 'Multiple Reviews Analysis',
             xaxis = dict(title = 'Category'),
-            yaxis = dict(title = 'Number of reviews'),)
+            yaxis = dict(title = 'Number of Reviews'),)
 
         fig.update_layout(dict1 = layout, overwrite = True)
         fig.add_trace(go.Bar(name = 'Multi Reviews', x = x, y = y))
